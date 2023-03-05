@@ -7,7 +7,7 @@ var searchMatrix = function (matrix, target) {
   let l = 0
   let r = matrix.length - 1
   let arr = []
-
+  //matrix
   while (l <= r && !arr.length) {
     const m = Math.floor((l + r) / 2)
     if (matrix[m][matrix[m].length - 1] >= target && matrix[m][0] <= target) {
