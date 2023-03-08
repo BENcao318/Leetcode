@@ -24,12 +24,6 @@ class TimeMap {
     bucket.push([value, timestamp])
   }
 
-  /**
-   * @param {string} key
-   * @param {number} timestamp
-   * Time O(log(N)) | Space O(1)
-   * @return {string}
-   */
   get(key, timestamp, value = '', bucket = this.map[key] || []) {
     let [left, right] = [0, bucket.length - 1]
 
