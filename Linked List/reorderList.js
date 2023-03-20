@@ -10,19 +10,19 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function (head) {
-  let reversedList = reverse(head)
-  let sentinel = (tail = new ListNode())
+  const mid = getMid(head)
+  const reversedFromMid = reverse(mid)
 
-  while (head.val !== reversedList.val) {
-    tail.next = head
-    head = head.next
-    tail = tail.next
-    tail.next = reversedList
-    reversedList = reversedList.next
-    tail = tail.next
+  reorder(head, reversedFromMid)
+}
+
+const getMid = (head) => {
+  let [slow, fast] = [head, head]
+  while (fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
   }
-  tail.next = head
-  return sentinel.next
+  return slow
 }
 
 const reverse = (head) => {
@@ -37,4 +37,18 @@ const reverse = (head) => {
   }
 
   return prev
+}
+
+const reorder = (l1, l2) => {
+  let [first, next, second] = [l1, null, l2]
+
+  while (second.next) {
+    next = first.next
+    first.next = second
+    first = next
+
+    next = second.next
+    second.next = first
+    second = next
+  }
 }
