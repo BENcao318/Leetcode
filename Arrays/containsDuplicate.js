@@ -12,10 +12,8 @@ var containsDuplicate = function (nums) {
   //     }
   // }
   // return false
-
   //sort first
   // let sortedNums = nums.sort((a, b) => a - b)
-
   // for(let i = 0; i < sortedNums.length - 1; i++) {
   //     next = i + 1
   //     if(sortedNums[i] === sortedNums[next]){
@@ -23,16 +21,25 @@ var containsDuplicate = function (nums) {
   //     }
   // }
   // return false
-
   //Set
-  const numsSet = new Set(nums)
-  if (numsSet.size === nums.length) return false
-  return true
-
+  // const numsSet = new Set(nums)
+  // if (numsSet.size === nums.length) return false
+  // return true
   //Has Set - Early Exit
   // for(const num of nums) {
   //     if(numsSet.has(num)) return true
   //     numsSet.add(num)
   // }
   // return false
+}
+
+var containsDuplicate = function (nums) {
+  const freq = {}
+  for (const num of nums) {
+    if (freq[num]) {
+      return true
+    }
+    freq[num] = true
+  }
+  return false
 }
