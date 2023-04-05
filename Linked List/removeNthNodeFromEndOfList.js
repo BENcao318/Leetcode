@@ -22,18 +22,18 @@ var removeNthFromEnd = function (head, n) {
   return head
 }
 
-const getNthFromEnd = (curr, n, length = 0) => {
+const getNthFromEnd = (curr, n, len = 0) => {
   while (curr) {
     curr = curr.next
-    length++
+    len++
   }
-  return length - n - 1
+  return len - n - 1
 }
 
-const moveNode = (curr, length) => {
-  while (length) {
+const moveNode = (curr, len) => {
+  while (len) {
     curr = curr.next
-    length--
+    len--
   }
   return curr
 }
