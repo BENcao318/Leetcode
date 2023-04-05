@@ -14,7 +14,6 @@ class MinStack {
 
   pop({ stack, minStack } = this) {
     const top = stack.pop()
-
     if (this.getMin() === top) minStack.pop()
   }
 
