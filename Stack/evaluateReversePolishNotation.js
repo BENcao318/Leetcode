@@ -2,6 +2,7 @@
  * @param {string[]} tokens
  * @return {number}
  */
+
 var evalRPN = function (tokens) {
   const stack = []
 
@@ -22,8 +23,6 @@ var evalRPN = function (tokens) {
       default:
         stack.push(token)
     }
-
-    console.log(stack)
   }
 
   return stack[0]
