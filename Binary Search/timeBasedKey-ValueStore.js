@@ -76,15 +76,15 @@ class TimeMap {
 
     while (left <= right) {
       const mid = (left + right) >> 1
-      const [guessValue, guessTimestamp] = bucket[mid]
+      const [guessValue, guessTimeStamp] = bucket[mid]
 
-      const isTargetGreater = guessTimestamp <= timestamp
+      const isTargetGreater = guessTimeStamp <= timestamp
       if (isTargetGreater) {
         value = guessValue
         left = mid + 1
       }
 
-      const isTargetLess = timestamp < guessTimestamp
+      const isTargetLess = timestamp < guessTimeStamp
       if (isTargetLess) right = mid - 1
     }
 
