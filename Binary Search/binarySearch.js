@@ -4,8 +4,7 @@
  * @return {number}
  */
 var search = function (nums, target) {
-  let l = 0
-  let r = nums.length - 1
+  let [l, r] = [0, nums.length - 1]
 
   while (l <= r) {
     const m = Math.floor(l + r)
