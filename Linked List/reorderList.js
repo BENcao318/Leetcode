@@ -52,3 +52,22 @@ const reorder = (l1, l2) => {
     second = next
   }
 }
+
+var reorderList = function (head) {
+  const arr = []
+  let curr = head
+  while (curr) {
+    arr.push(curr)
+    curr = curr.next
+  }
+
+  let [i, j] = [0, arr.length - 1]
+  while (i < j) {
+    arr[i].next = arr[j]
+    i++
+    if (i === j) break
+    arr[j].next = arr[i]
+    j--
+  }
+  arr[i].next = null
+}
