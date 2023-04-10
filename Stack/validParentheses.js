@@ -24,7 +24,6 @@ var isValid = function (s) {
 
 var isValid = function (s) {
   let count = 0
-
   for (const char of s) {
     if (char === '(') {
       count++
