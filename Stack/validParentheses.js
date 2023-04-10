@@ -21,3 +21,20 @@ var isValid = function (s) {
   }
   return stack.length === 0
 }
+
+var isValid = function (s) {
+  let count = 0
+  for (const char of s) {
+    if (char === '(') {
+      count++
+    } else if (char === ')') {
+      count--
+    }
+
+    if (count < 0) {
+      return false
+    }
+  }
+
+  return count === 0
+}
