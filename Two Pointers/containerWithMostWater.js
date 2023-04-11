@@ -32,3 +32,22 @@ const getArea = (height, left, right) => {
 
   return _height * width
 }
+
+var maxArea = function (height) {
+  const stack = []
+  let max = 0
+
+  for (let i = 0; i < height.length; i++) {
+    while (stack.length > 0 && height[i] > height[stack[stack.length - 1]]) {
+      const j = stack.pop()
+      if (stack.length > 0) {
+        const k = stack[stack.length - 1]
+        const area = (i - k - 1) * (Math.min(height[i], height[k]) - height[j])
+        max = Math.max(max, area)
+      }
+    }
+    stack.push(i)
+  }
+
+  return max
+}
