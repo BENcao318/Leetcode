@@ -37,3 +37,43 @@ const moveNode = (curr, len) => {
   }
   return curr
 }
+
+/**
+ * https://leetcode.com/problems/merge-two-sorted-lists/
+ * Time O(N) | Space O(1)
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function (head, n) {
+  const length = getNthFromEnd(head, n) /* Time O(N) */
+
+  const isHead = length < 0
+  if (isHead) return head.next
+
+  const curr = moveNode(head, length) /* Time O(N) */
+
+  curr.next = curr.next.next
+
+  return head
+}
+
+const getNthFromEnd = (curr, n, length = 0) => {
+  while (curr) {
+    /* Time O(N) */
+    curr = curr.next
+    length++
+  }
+
+  return length - n - 1
+}
+
+const moveNode = (curr, length) => {
+  while (length) {
+    /* Time O(N) */
+    curr = curr.next
+    length--
+  }
+
+  return curr
+}
