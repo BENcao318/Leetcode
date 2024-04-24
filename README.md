@@ -1,2 +1,2 @@
 # Leetcode
-Solutions with optimal algorithms for performance
+Solutions with optimal algorithms for program performance.
